@@ -28,7 +28,12 @@ export const ContactCard = props => {
 										<button className="btn">
 											<i className="fas fa-pencil-alt mr-3" />
 										</button>
-										<button className="btn" onClick={() => props.onDelete()}>
+										<button
+											className="btn"
+											onClick={() => {
+												actions.deleteContact(e.id);
+											}}>
+											{/*we change props.onDelete actions.deleteContact(e.id)*/}
 											<i className="fas fa-trash-alt" />
 										</button>
 									</div>

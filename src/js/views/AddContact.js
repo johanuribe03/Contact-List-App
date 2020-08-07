@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
+import { Home } from "react-router-dom";
 
-export const AddContact = () => {
+export default function AddContact() {
+	const { store, actions } = useContext(Context);
+	const [fullName, setFullName] = useState("");
+	const [email, setEmail] = useState("");
+	const [phone, setPhone] = useState("");
+	const [address, setAddress] = useState("");
+
 	return (
 		<div className="container">
 			<div>
@@ -9,19 +17,44 @@ export const AddContact = () => {
 				<form>
 					<div className="form-group">
 						<label>Full Name</label>
-						<input type="text" className="form-control" placeholder="Full Name" />
+						<input
+							type="text"
+							value={fullName}
+							onChange={e => setFullName(e.target.value)} // whenever theres an event we pass that event to the fullname function
+							className="form-control"
+							placeholder="Full Name"
+						/>{" "}
+						{/*add value, add onChange*/}
 					</div>
 					<div className="form-group">
 						<label>Email</label>
-						<input type="email" className="form-control" placeholder="Enter email" />
+						<input
+							type="email"
+							value={email}
+							onChange={e => setEmail(e.target.value)}
+							className="form-control"
+							placeholder="Enter email"
+						/>
 					</div>
 					<div className="form-group">
 						<label>Phone</label>
-						<input type="phone" className="form-control" placeholder="Enter phone" />
+						<input
+							type="phone"
+							value={phone}
+							onChange={e => setPhone(e.target.value)}
+							className="form-control"
+							placeholder="Enter phone"
+						/>
 					</div>
 					<div className="form-group">
 						<label>Address</label>
-						<input type="text" className="form-control" placeholder="Enter address" />
+						<input
+							type="text"
+							value={address}
+							onChange={e => setAddress(e.target.value)}
+							className="form-control"
+							placeholder="Enter address"
+						/>
 					</div>
 					<button type="button" className="btn btn-primary form-control">
 						save
@@ -33,4 +66,4 @@ export const AddContact = () => {
 			</div>
 		</div>
 	);
-};
+}
