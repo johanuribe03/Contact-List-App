@@ -10,11 +10,24 @@ export default function AddContact() {
 	const [phone, setPhone] = useState("");
 	const [address, setAddress] = useState("");
 
+	const handleSubmit = e => {
+		e.preventDefault(); // dont summit the way you usually submit
+		actions.addContact({
+			full_name: fullName,
+			email: email,
+			phone: phone,
+			address: address,
+			agenda_slug: "Johan"
+		});
+	};
+
 	return (
 		<div className="container">
 			<div>
 				<h1 className="text-center mt-5">Add a new contact</h1>
-				<form>
+				<form onSummit={e => handleSubmit(e)}>
+					{" "}
+					{/**/}
 					<div className="form-group">
 						<label>Full Name</label>
 						<input
