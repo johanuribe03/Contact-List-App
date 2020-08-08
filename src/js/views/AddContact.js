@@ -17,7 +17,7 @@ export default function AddContact() {
 			email: email,
 			phone: phone,
 			address: address,
-			agenda_slug: "Johan"
+			agenda_slug: "Johan_Uribe" //?
 		});
 	};
 
@@ -25,7 +25,7 @@ export default function AddContact() {
 		<div className="container">
 			<div>
 				<h1 className="text-center mt-5">Add a new contact</h1>
-				<form onSummit={e => handleSubmit(e)}>
+				<form onSubmit={e => handleSubmit(e)}>
 					{" "}
 					{/**/}
 					<div className="form-group">
@@ -69,7 +69,9 @@ export default function AddContact() {
 							placeholder="Enter address"
 						/>
 					</div>
-					<button type="button" className="btn btn-primary form-control">
+					<button type="submit" className="btn btn-primary form-control">
+						{" "}
+						{/*change type to submit asdasd*/}
 						save
 					</button>
 					<Link className="mt-3 w-100 text-center" to="/">

@@ -19,13 +19,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(e => console.error(e));
 			},
 
-			addContact(data) {
+			addContact: data => {
 				//will take and objs as input and the onj will retrun it as a string to the server
+				console.log("add contact", data);
 				fetch("https://assets.breatheco.de/apis/fake/contact/", {
 					method: "POST",
-					headers: {
-						"Content-Type": "application/json"
-					},
+					headers: { "Content-Type": "application/json" },
 					body: JSON.stringify(data)
 				})
 					.then(res => res.json())
