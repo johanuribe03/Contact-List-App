@@ -69,11 +69,11 @@ export default function AddContact() {
 							placeholder="Enter address"
 						/>
 					</div>
-					<button type="submit" className="btn btn-primary form-control">
+					<Link type="submit" className="btn btn-primary form-control" to="/">
 						{" "}
-						{/*change type to submit asdasd*/}
+						{/*change type to submit*/}
 						save
-					</button>
+					</Link>
 					<Link className="mt-3 w-100 text-center" to="/">
 						or get back to contacts
 					</Link>

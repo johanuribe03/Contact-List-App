@@ -3,9 +3,14 @@ import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 
 export const Modal = props => {
-	const [state, setState] = useState({
-		//initialize state here
-	});
+	// const [state, setState] = useState({
+	// 	//initialize state here
+	// });
+	const { onDelete, id } = props;
+	const handleDelete = () => {
+		onDelete(id);
+	};
+	// comment "const [state, setState] = useState({" and added const handleDelete = () => {};
 	return (
 		<div className="modal" tabIndex="-1" role="dialog" style={{ display: props.show ? "inline-block" : "none" }}>
 			<div className="modal-dialog" role="document">
@@ -29,12 +34,18 @@ export const Modal = props => {
 						<p>Warning: unknown consequences after this point... Kidding!</p>
 					</div>
 					<div className="modal-footer">
-						<button type="button" className="btn btn-primary">
+						<button onClick={() => onClose(false)} type="button" className="btn btn-primary">
 							Oh no!
-						</button>
-						<button type="button" className="btn btn-secondary" data-dismiss="modal">
+						</button>{" "}
+						{/*//added "onClick={()=> onClose(false)}"*/}
+						<button
+							onClick={() => handleDelete()}
+							type="button"
+							className="btn btn-secondary"
+							data-dismiss="modal">
 							Do it!
-						</button>
+						</button>{" "}
+						{/*//added "onClick={()=> handleDelete()}"*/}
 					</div>
 				</div>
 			</div>
@@ -48,8 +59,10 @@ export const Modal = props => {
 Modal.propTypes = {
 	history: PropTypes.object,
 	onClose: PropTypes.func,
-	show: PropTypes.bool
-};
+	show: PropTypes.bool,
+	onDelete: PropTypes.func,
+	id: PropTypes.string
+}; // added " onDelete: PropTypes.func and id: PropTypes.string"
 
 /**
  * Define the default values for

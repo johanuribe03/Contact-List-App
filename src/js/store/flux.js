@@ -6,6 +6,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			//Your data structures, A.K.A Entities
 		},
 		actions: {
+			// goHome = () => {
+			//     to: "/";
+			// }
 			//displaying a contact
 			loadContact() {
 				fetch(URL + "agenda/Johan_Uribe")
@@ -37,7 +40,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			//Deleting a Contact
 			deleteContact(id) {
-				console.log(URL + id);
+				// console.log(URL + id);
 				fetch(URL + id, {
 					method: "DELETE",
 					headers: {
@@ -46,7 +49,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then(res => res.json())
 					.then(data => {
-						console.log("response", data);
+						// console.log("response", data);
 						getActions().loadContact();
 					})
 					.catch(e => console.error(e));
